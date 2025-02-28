@@ -1,6 +1,5 @@
 requests
 plotly
-japanize_matplotlib
 json
 datetime
 re
