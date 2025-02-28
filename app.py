@@ -1,7 +1,7 @@
 # app.py（ファイル名は任意）
 import streamlit as st
 import requests
-import plotly.graph_objects as go
+import plotly.express as px
 import json
 import datetime
 import re
