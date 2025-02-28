@@ -1,5 +1,6 @@
+streamlit>=1.21.0
 requests
-plotly
+plotly>=5.14.1
 json
 datetime
 re
