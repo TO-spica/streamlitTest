@@ -49,8 +49,10 @@ for j in range(7):
     response.encoding = response.apparent_encoding  # 文字エンコーディングを適切に設定
     # ① JSONデータを直接取得
     json_data = response.json()  # decode() は不要
+    st.write(json_data)
     # ② 必要なデータ（pollenの配列）を取得
     recv = json_data["obs"]["pollen"]
+    st.write(recv)
     kafun.append([list(range(1,len(recv)+1)),recv])
 
   # グラフ作成
