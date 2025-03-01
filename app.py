@@ -27,7 +27,7 @@ for i in range(len(src)):
 # という形にする。
 
 dtnow = datetime.datetime.now()
-st.write(dtnow)
+st.write("現在時刻：" + dtnow.strftime("%Y/%m/%d"))
 
 for j in range(7):
   dt = dtnow + datetime.timedelta(days = -j) + datetime.timedelta(hours = +9)
