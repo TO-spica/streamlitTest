@@ -51,6 +51,7 @@ for j in range(7):
     recv = json_data["obs"]["pollen"]
     kafun.append([list(range(1,len(recv)+1)),recv])
 
+uri
 kafun
   
   # グラフのサイズを設定
@@ -64,7 +65,7 @@ kafun
   # グラフのタイトルとラベルを設定
   #plt.title(dt.strftime("%Y/%m/%d"))
   #plt.xlabel('日時')
-  3plt.ylabel('花粉(個)')
+  #plt.ylabel('花粉(個)')
 
   # グリッドを表示
   #plt.grid(True)
