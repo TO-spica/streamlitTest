@@ -29,10 +29,11 @@ for i in range(len(src)):
 # という形にする。
 
 dtnow = datetime.datetime.now()
-st.write("現在時刻：" + dtnow.strftime("%Y/%m/%d %T"))
+dtshow = dtnow + datetime.timedelta(hours = +9)
+st.write("現在時刻：" + dtshow.strftime("%Y/%m/%d %T"))
 
 for j in range(1):
-  dt = dtnow + datetime.timedelta(days = -j) + datetime.timedelta(hours = +9)
+  dt = dtnow + datetime.timedelta(days = -j) + datetime.timedelta(hours = +8)
   # API用URIを合成し、リストuriに追加。POLLEN_2025-0101　という部分を抽出してくっつける。
   uri = []
   for i in range(len(src)):
