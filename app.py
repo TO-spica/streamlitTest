@@ -55,7 +55,7 @@ for j in range(3):
     # ② 必要なデータ（pollenの配列）を取得
     recv = json_data["obs"]["pollen"]
     kafun.append([list(range(1,len(recv)+1)),recv])
-    #time.sleep(1)
+  time.sleep(2)
 
   # グラフ作成
   fig = go.Figure()
