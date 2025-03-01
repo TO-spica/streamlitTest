@@ -5,6 +5,7 @@ import plotly.graph_objects as go
 import json
 import datetime
 import re
+import time
 
 # 取得対象のURLと測定者をリストにする
 src = []
@@ -50,6 +51,7 @@ for j in range(1):
     # ② 必要なデータ（pollenの配列）を取得
     recv = json_data["obs"]["pollen"]
     kafun.append([list(range(1,len(recv)+1)),recv])
+    time.sleep(1)
 
   # グラフ作成
   fig = go.Figure()
