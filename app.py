@@ -38,7 +38,7 @@ for j in range(7):
     if match:
       url = "https://site.weathernews.jp/site/pollen/json/obs/" + dt.strftime("%Y/%m/%d") + "/" + match.group() + ".json"
       #print(match.group())
-      print(url)
+      st.write(url)
       uri.append(url)
 
   # 各URIを使って花粉(個)のデータを取得する。
