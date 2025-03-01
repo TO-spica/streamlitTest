@@ -37,8 +37,6 @@ for j in range(1):
     match = re.search(r"POLLEN_\d{4}-\d{4}", src[i][1])
     if match:
       url = "https://site.weathernews.jp/site/pollen/json/obs/" + dt.strftime("%Y/%m/%d") + "/" + match.group() + ".json"
-      #print(match.group())
-      st.write(url)
       uri.append(url)
 
   # 各URIを使って花粉(個)のデータを取得する。
@@ -49,10 +47,8 @@ for j in range(1):
     response.encoding = response.apparent_encoding  # 文字エンコーディングを適切に設定
     # ① JSONデータを直接取得
     json_data = response.json()  # decode() は不要
-    st.write(json_data)
     # ② 必要なデータ（pollenの配列）を取得
     recv = json_data["obs"]["pollen"]
-    st.write(recv)
     kafun.append([list(range(1,len(recv)+1)),recv])
 
   # グラフ作成
@@ -60,3 +56,5 @@ for j in range(1):
   for i in range(len(src)):
     fig.add_trace(go.Scatter(x=kafun[i][0], y=kafun[i][1], name=src[i][0]))
   st.plotly_chart(fig)
+
+st.write(kafun)
