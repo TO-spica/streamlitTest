@@ -56,7 +56,7 @@ for j in range(7):
   # グラフ作成
   fig = go.Figure()
   for i in range(len(src)):
-    fig.add_trace(go.Scatter(x=kafun[i][0], y=kafun[i][1], name=src[i][0])
+    fig.add_trace(go.Scatter(x=kafun[i][0], y=kafun[i][1], name=src[i][0]))
   st.plotly_chart(fig)
 
   #plt.figure(figsize=(10, 6))
