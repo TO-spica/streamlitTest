@@ -39,7 +39,8 @@ for j in range(1):
     if match:
       url = "https://site.weathernews.jp/site/pollen/json/obs/" + dt.strftime("%Y/%m/%d") + "/" + match.group() + ".json"
       uri.append(url)
-
+  st.write(uri)
+  
   # 各URIを使って花粉(個)のデータを取得する。
   kafun = []
   for i in range(len(src)):
