@@ -1,7 +1,7 @@
 # app.py（ファイル名は任意）
 import streamlit as st
 import requests
-import plotly.express as px
+import plotly.graph_objects as go
 import json
 import datetime
 import re
@@ -19,6 +19,55 @@ src.append(["ぽんぽん さん (町田市金井)", "https://weathernews.jp/pol
 # 表記ゆれをなくすため、都県を削除
 for i in range(len(src)):
   src[i][0] = src[i][0].replace("東京都","").replace("神奈川県","")
+  
+# 今日から1週間前までのyyyy/mm/ddを取得し、URLからAPI用URIに変換。
+# https://weathernews.jp/pollen/pollen.html?pid=POLLEN_2025-0101
+# を
+# https://site.weathernews.jp/site/pollen/json/obs/2025/02/28/POLLEN_2025-0101.json
+# という形にする。
 
-src
-st.write("簡単")
+dtnow = datetime.datetime.now()
+for j in range(7):
+  dt = dtnow + datetime.timedelta(days = -j) + datetime.timedelta(hours = +9)
+  # API用URIを合成し、リストuriに追加。POLLEN_2025-0101　という部分を抽出してくっつける。
+  uri = []
+  for i in range(len(src)):
+    match = re.search(r"POLLEN_\d{4}-\d{4}", src[i][1])
+    if match:
+      url = "https://site.weathernews.jp/site/pollen/json/obs/" + dt.strftime("%Y/%m/%d") + "/" + match.group() + ".json"
+      #print(match.group())
+      #print(url)
+      uri.append(url)
+
+  # 各URIを使って花粉(個)のデータを取得する。
+  kafun = []
+  for i in range(len(src)):
+    # ウェブページの内容を取得
+    response = requests.get(uri[i])
+    response.encoding = response.apparent_encoding  # 文字エンコーディングを適切に設定
+    # ① JSONデータを直接取得
+    json_data = response.json()  # decode() は不要
+    # ② 必要なデータ（pollenの配列）を取得
+    recv = json_data["obs"]["pollen"]
+    kafun.append([list(range(1,len(recv)+1)),recv])
+
+kafun
+  
+  # グラフのサイズを設定
+  #plt.figure(figsize=(10, 6))
+
+  # 折れ線グラフをプロット
+  #for i in range(len(src)):
+  #  plt.plot(kafun[i][0], kafun[i][1], label=src[i][0], marker='o', linestyle='-')
+  #plt.legend()
+
+  # グラフのタイトルとラベルを設定
+  #plt.title(dt.strftime("%Y/%m/%d"))
+  #plt.xlabel('日時')
+  3plt.ylabel('花粉(個)')
+
+  # グリッドを表示
+  #plt.grid(True)
+
+  # グラフを表示
+  #plt.show()
