@@ -51,6 +51,7 @@ for j in range(7):
     json_data = response.json()  # decode() は不要
     # ② 必要なデータ（pollenの配列）を取得
     recv = json_data["obs"]["pollen"]
+    st.write(recv)
     kafun.append([list(range(1,len(recv)+1)),recv])
 
   # グラフ作成
