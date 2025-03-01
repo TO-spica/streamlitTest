@@ -53,10 +53,12 @@ for j in range(7):
     recv = json_data["obs"]["pollen"]
     kafun.append([list(range(1,len(recv)+1)),recv])
 
-uri
-kafun
-  
-  # グラフのサイズを設定
+  # グラフ作成
+  fig = go.Figure()
+  for i in range(len(src)):
+    fig.add_trace(go.Scatter(x=kafun[i][0], y=kafun[i][1], name=src[i][0])
+  st.plotly_chart(fig)
+
   #plt.figure(figsize=(10, 6))
 
   # 折れ線グラフをプロット
