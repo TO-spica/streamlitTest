@@ -60,21 +60,3 @@ for j in range(1):
   for i in range(len(src)):
     fig.add_trace(go.Scatter(x=kafun[i][0], y=kafun[i][1], name=src[i][0]))
   st.plotly_chart(fig)
-
-  #plt.figure(figsize=(10, 6))
-
-  # 折れ線グラフをプロット
-  #for i in range(len(src)):
-  #  plt.plot(kafun[i][0], kafun[i][1], label=src[i][0], marker='o', linestyle='-')
-  #plt.legend()
-
-  # グラフのタイトルとラベルを設定
-  #plt.title(dt.strftime("%Y/%m/%d"))
-  #plt.xlabel('日時')
-  #plt.ylabel('花粉(個)')
-
-  # グリッドを表示
-  #plt.grid(True)
-
-  # グラフを表示
-  #plt.show()
