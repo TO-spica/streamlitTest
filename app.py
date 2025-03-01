@@ -27,6 +27,8 @@ for i in range(len(src)):
 # という形にする。
 
 dtnow = datetime.datetime.now()
+st.write(dtnow)
+
 for j in range(7):
   dt = dtnow + datetime.timedelta(days = -j) + datetime.timedelta(hours = +9)
   # API用URIを合成し、リストuriに追加。POLLEN_2025-0101　という部分を抽出してくっつける。
