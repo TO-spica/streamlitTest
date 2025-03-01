@@ -61,6 +61,8 @@ for j in range(3):
   fig = go.Figure()
   for i in range(len(src)):
     fig.add_trace(go.Scatter(x=kafun[i][0], y=kafun[i][1], name=src[i][0]))
+  fig.update_layout(xaxis=dict(range=(0, 25),showgrid=True),
+                   yaxis=dict(showgrid=True))
   st.plotly_chart(fig)
 
 #st.write(kafun)
