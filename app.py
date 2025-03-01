@@ -32,7 +32,7 @@ dtnow = datetime.datetime.now()
 dtshow = dtnow + datetime.timedelta(hours = +9)
 st.write("現在時刻：" + dtshow.strftime("%Y/%m/%d %T"))
 
-arr = [0, 0, 1, 2]
+arr = [6, 0, 1]
 
 #for j in range(3):
 for j in arr:
